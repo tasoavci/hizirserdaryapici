@@ -21,7 +21,30 @@ function mysqli_result($result, $row, $field = 0) {
 
 // Parse Heroku DATABASE_URL environment variable
 $dbUrl = getenv("DATABASE_URL");
+if (!$dbUrl) {
+    die("DATABASE_URL environment variable not set or empty.");
+}
+
 $dbConfig = parse_url($dbUrl);
+
+// Debug bilgilerini log'layın
+error_log("Host: " . $dbConfig["host"]);
+error_log("User: " . $dbConfig["user"]);
+error_log("Password: " . $dbConfig["pass"]);
+error_log("Database Name: " . substr($dbConfig["path"], 1));
+
+$host = $dbConfig["host"] ?? 'default_host';
+$username = $dbConfig["user"] ?? 'default_user';
+$password = $dbConfig["pass"] ?? 'default_password';
+$database = substr($dbConfig["path"], 1) ?? 'default_database';
+
+$db = mysqli_connect($host, $username, $password, $database);
+
+if (!$db) {
+    error_log("MySQL Connection Error: " . mysqli_connect_error());
+    die("Failed to connect to MySQL: " . mysqli_connect_error());
+}
+
 
 $host = $dbConfig["host"];
 $username = $dbConfig["user"];

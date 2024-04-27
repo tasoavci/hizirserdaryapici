@@ -39,7 +39,7 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="img/profile-img.JPG" alt="" class="img-fluid rounded-circle">
+        <img src="assets/img/profile-img.JPG" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.php">Hızır Serdar Yapıcı</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="https://mobile.twitter.com/serdaryapici035" class="twitter"><i class="bx bxl-twitter"></i></a>

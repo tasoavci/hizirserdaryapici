@@ -120,7 +120,7 @@
                                                     </td>
                                                     <td>
                                                         <?php if($portfolio['Portfolio_Type']=="images"){ ?>
-                                                            <img style="width: 35%; margin-bottom: 2%;" src="<?php echo 'assets/img/SERDAR_PORTFOLIO/'.$portfolio['Portfolio_Magnificationimg'];?>"/>
+                                                            <img style="width: 35%; margin-bottom: 2%;" src="<?php echo '../assets/img/SERDAR_PORTFOLIO/'.$portfolio['Portfolio_Magnificationimg'];?>"/>
                                                         <?php }else{ ?>
                                                             <video style="width: 70%; margin-bottom: 2%;" controls>
                                                                 <source src="<?php echo 'assets/img/SERDAR_PORTFOLIO/'.$portfolio['Portfolio_Magnificationimg'];?>">

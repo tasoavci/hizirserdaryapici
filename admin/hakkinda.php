@@ -123,7 +123,7 @@
                                         </div>
                                         <div class="card-body">
                                             <div class="col-xl-6 col-md-6" style="color:#000;">
-                                                <img style="width: 30%; margin-bottom: 2%;" src="<?php echo 'assets/img/'.$about['About_Img'];?>"/>
+                                                <img style="width: 30%; margin-bottom: 2%;" src="<?php echo '../assets/img/'.$about['About_Img'];?>"/>
                                             </div>
                                             <div class="col-xl-6 col-md-6" style="color:#000;">
                                                 <h3>Başlık:</h3><br>

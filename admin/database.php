@@ -6,7 +6,7 @@ $password = getenv('DB_PASSWORD') ?: 'hizirserdaryapici';
 $dbname = getenv('DB_NAME') ?: 'hizirser_data';
 
 // MySQL'e bağlan
-$conn = new mysqli($host, $user, $password, $dbname, $port);
+$conn = new mysqli('5.2.85.136', $user, $password, $dbname, $port);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

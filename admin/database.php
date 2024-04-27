@@ -1,8 +1,7 @@
 <?php
-// DATABASE_URL ortam değişkenini al
 $dbUrl = getenv("DATABASE_URL");
 if (!$dbUrl) {
-    // Eğer ortam değişkeni set edilmemişse, doğrudan sabit URL'yi kullan
+
     $dbUrl = "mysql://gp43ixfvps2viigy:xhahjjjpzn8n0j3v@fojvtycq53b2f2kx.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/eu85oartlozlppxf";
 }
 
@@ -13,9 +12,9 @@ $host = $dbParts['host'];
 $user = $dbParts['user'];
 $password = $dbParts['pass'];
 $port = $dbParts['port'];
-$dbname = substr($dbParts['path'], 1); // Başındaki '/' karakterini kaldır
+$dbname = substr($dbParts['path'], 1); 
 
-// MySQL'e bağlan
+
 $conn = new mysqli($host, $user, $password, $dbname, $port);
 
 if ($conn->connect_error) {

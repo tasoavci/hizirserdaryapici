@@ -1,12 +1,22 @@
 <?php
 // DATABASE_URL ortam değişkenini al
-$host = getenv('DB_HOST') ?: '5.2.85.136'; // Eğer heroku config'de set edilmemişse
-$username = getenv('DB_USER') ?: 'hizirser_root';
-$password = getenv('DB_PASSWORD') ?: 'hizirserdaryapici';
-$dbname = getenv('DB_NAME') ?: 'hizirser_data';
+$dbUrl = getenv("DATABASE_URL");
+if (!$dbUrl) {
+    // Eğer ortam değişkeni set edilmemişse, doğrudan sabit URL'yi kullan
+    $dbUrl = "mysql://gp43ixfvps2viigy:xhahjjjpzn8n0j3v@fojvtycq53b2f2kx.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/eu85oartlozlppxf";
+}
+
+// URL'yi ayrıştır
+$dbParts = parse_url($dbUrl);
+
+$host = $dbParts['host'];
+$user = $dbParts['user'];
+$password = $dbParts['pass'];
+$port = $dbParts['port'];
+$dbname = substr($dbParts['path'], 1); // Başındaki '/' karakterini kaldır
 
 // MySQL'e bağlan
-$conn = new mysqli('5.2.85.136', $user, $password, $dbname, $port);
+$conn = new mysqli($host, $user, $password, $dbname, $port);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

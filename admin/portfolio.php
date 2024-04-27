@@ -111,10 +111,10 @@
                                                 <tr>
                                                     <td>
                                                         <?php if($portfolio['Portfolio_Type']=="images"){ ?>
-                                                            <img style="width: 70%; margin-bottom: 2%;" src="<?php echo 'assets/img/portfolio/'.$portfolio['Portfolio_Frontimg'];?>"/>
+                                                            <img style="width: 70%; margin-bottom: 2%;" src="<?php echo '../assets/img/portfolio/'.$portfolio['Portfolio_Frontimg'];?>"/>
                                                         <?php }else{ ?>
                                                             <video style="width: 70%; margin-bottom: 2%;" controls>
-                                                                <source src="<?php echo 'assets/img/portfolio/'.$portfolio['Portfolio_Frontimg'];?>">
+                                                                <source src="<?php echo '../assets/img/portfolio/'.$portfolio['Portfolio_Frontimg'];?>">
                                                             </video>
                                                         <?php } ?>
                                                     </td>

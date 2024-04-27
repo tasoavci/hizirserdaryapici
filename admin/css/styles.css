@@ -11549,6 +11549,7 @@ body {
 }
 
 .datatable-bottom {
+  color: #000;
   padding: 0;
 }
 
@@ -11575,12 +11576,17 @@ body {
 }
 
 .datatable-info {
+  color: #000;
   margin: 7px 0;
 }
+
 
 /* PAGER */
 .datatable-pagination a:hover {
   background-color: #e9ecef;
+}
+.datatable-pagination-list ul li {
+  color: #000;
 }
 
 .datatable-pagination .active a,

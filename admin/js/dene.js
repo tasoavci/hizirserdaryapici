@@ -1,0 +1,1 @@
+simpleDatatables.DataTable();

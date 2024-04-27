@@ -152,14 +152,14 @@
                                                 <tr>
                                                     <th>Beni Tanı Başlığı</th>
                                                     <th>Beni Tanı Yazısı</th>
-                                                    <!-- <th style="opacity: 0;"></th> -->
+                                                    <th style="opacity: 0;"></th>
                                                 </tr>
                                             </thead>
                                             <tfoot>
                                                 <tr>
                                                     <th>Beni Tanı Başlığı</th>
                                                     <th>Beni Tanı Yazısı</th>
-                                                    <!-- <th style="opacity: 0;"></th> -->
+                                                    <th style="opacity: 0;"></th>
                                                 </tr>
                                             </tfoot>
                                             <tbody>

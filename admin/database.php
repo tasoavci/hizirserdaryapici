@@ -2,37 +2,44 @@
 // DATABASE_URL ortam değişkenini al
 $dbUrl = getenv("DATABASE_URL");
 if (!$dbUrl) {
-    die("Database connection URL not provided.");
+    // Eğer ortam değişkeni set edilmemişse, doğrudan sabit URL'yi kullan
+    $dbUrl = "mysql://e8778w8bqxpc64g0:ckshcs7m8iqm9qrf@fojvtycq53b2f2kx.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/punvx4pkk1xqbqmb";
 }
 
 // URL'yi ayrıştır
 $dbParts = parse_url($dbUrl);
 
 $host = $dbParts['host'];
-$port = $dbParts['port'];
 $user = $dbParts['user'];
 $password = $dbParts['pass'];
-$dbname = ltrim($dbParts['path'], '/');  // Başındaki '/' karakterini kaldır
+$port = $dbParts['port'];
+$dbname = substr($dbParts['path'], 1); // Başındaki '/' karakterini kaldır
 
-// DSN (Data Source Name) string
-$dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
+// MySQL'e bağlan
+$conn = new mysqli($host, $user, $password, $dbname, $port);
 
-try {
-    // PDO ile PostgreSQL'e bağlan
-    $pdo = new PDO($dsn, $user, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Could not connect to the database: " . $e->getMessage());
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-function pg_result($stmt, $row, $field = 0) {
-    $stmt->execute();
-    $data = $stmt->fetchAll(PDO::FETCH_BOTH);
-    if (empty($data) || $row >= count($data)) return false;
-    if (is_string($field)) {
-        $field = array_search($field, array_column($stmt->fetchAll(PDO::FETCH_ASSOC), null, 'name'));
+function mysqli_result($result, $row, $field=0) {
+    if ($result === false) return false;
+    if ($row >= mysqli_num_rows($result)) return false;
+    if (is_string($field) && !(strpos($field, ".") === false)) {
+        $t_field = explode(".", $field);
+        $field = -1;
+        $t_fields = mysqli_fetch_fields($result);
+        for ($id = 0; $id < mysqli_num_fields($result); $id++) {
+            if ($t_fields[$id]->table == $t_field[0] && $t_fields[$id]->name == $t_field[1]) {
+                $field = $id;
+                break;
+            }
+        }
+        if ($field == -1) return false;
     }
-    return isset($data[$row][$field]) ? $data[$row][$field] : false;
+    mysqli_data_seek($result, $row);
+    $line = mysqli_fetch_array($result);
+    return isset($line[$field]) ? $line[$field] : false;
 }
 
 function alt_replace($string) {
@@ -52,13 +59,13 @@ function alt_replace($string) {
 
 function p($par, $st = false) {
     if ($st) {
-        return htmlspecialchars(alt_replace(addslashes(trim(@$_POST[$par]))));
+        return htmlspecialchars(alt_replace(addslashes(trim($_POST[$par]))));
     } else {
-        return addslashes(alt_replace(trim(@$_POST[$par])));
+        return addslashes(alt_replace(trim($_POST[$par])));
     }
 }
 
 function g($par) {
-    return strip_tags(alt_replace(trim(addslashes(@$_GET[$par]))));
+    return strip_tags(alt_replace(trim(addslashes($_GET[$par]))));
 }
 ?>

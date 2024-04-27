@@ -15,9 +15,9 @@ $port = $dbParts['port'];
 $dbname = substr($dbParts['path'], 1); 
 
 
-$conn = new mysqli($host, $user, $password, $dbname, $port);
+$db = new mysqli($host, $user, $password, $dbname, $port);
 
-if ($conn->connect_error) {
+if ($db->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 

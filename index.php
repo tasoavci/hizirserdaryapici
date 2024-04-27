@@ -102,7 +102,7 @@
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="<?php echo 'https://hizirserdaryapici.com/assets/img/'.$about['About_Img'];?>" class="img-fluid" alt="">
+            <img src="<?php echo 'assets/img/'.$about['About_Img'];?>" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <h3><?php echo $about['About_Title']; ?></h3>

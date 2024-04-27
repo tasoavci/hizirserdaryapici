@@ -11,8 +11,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="https://hizirserdaryapici.com/assets/img/profile-img.JPG" rel="icon">
-  <link href="https://hizirserdaryapici.com/assets/img/profile-img.JPG" rel="apple-touch-icon">
+  <link href="assets/img/profile-img.JPG" rel="icon">
+  <link href="assets/img/profile-img.JPG" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -270,13 +270,13 @@
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
           <?php while ($portfolio=mysqli_fetch_array($portfolioinfo)){ ?>
             <div class="col-lg-4 col-md-6 portfolio-item lazy">
-              <a href="<?php echo 'https://hizirserdaryapici.com/assets/img/portfolio/'.$portfolio['Portfolio_Magnificationimg'];?>" data-gallery="portfolioGallery" class="portfolio-lightbox lazy">
+              <a href="<?php echo 'assets/img/portfolio/'.$portfolio['Portfolio_Magnificationimg'];?>" data-gallery="portfolioGallery" class="portfolio-lightbox lazy">
                 <div class="portfolio-wrap">
                     <?php if($portfolio['Portfolio_Type']=="images"){ ?>
-                        <img class="img-fluid" src="<?php echo 'https://hizirserdaryapici.com/assets/img/portfolio/'.$portfolio['Portfolio_Magnificationimg'];?>"/>
+                        <img class="img-fluid" src="<?php echo 'assets/img/portfolio/'.$portfolio['Portfolio_Magnificationimg'];?>"/>
                     <?php }else{ ?>
                         <video class="img-fluid" controls>
-                           <source src="<?php echo 'https://hizirserdaryapici.com/assets/img/portfolio/'.$portfolio['Portfolio_Magnificationimg'];?>">
+                           <source src="<?php echo 'assets/img/portfolio/'.$portfolio['Portfolio_Magnificationimg'];?>">
                         </video>
                     <?php } ?>
                 </div>
@@ -302,7 +302,7 @@
         <div class="row">
           <?php while ($cvdetail=mysqli_fetch_array($cvpage)){ ?>
             <div class="col-lg-6">
-              <iframe src="https://hizirserdaryapici.com/assets/img/<?php echo $cvdetail['Cv_pdf'];?>" title="CV" height="300px" width="100%"></iframe>
+              <iframe src="assets/img/<?php echo $cvdetail['Cv_pdf'];?>" title="CV" height="300px" width="100%"></iframe>
             </div>
           <?php }?>
         </div>
@@ -410,7 +410,7 @@
                 <div id="number"><h2>0(506) 385 78 59</h2></div>
                 <div id="ara">
                   <div id="containerara">
-                    <a onClick="git();"><div id="callme"><img src="https://hizirserdaryapici.com/assets/img/tel.png"></div></a>
+                    <a onClick="git();"><div id="callme"><img src="assets/img/tel.png"></div></a>
                     <a onClick="git();"><h2 id="yaz">Hemen Arayın</h2></a>
                   </div>
                   <p>Bana Ulaşmak için..</p>

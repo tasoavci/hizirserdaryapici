@@ -14,10 +14,10 @@
             $mail->CharSet = 'UTF-8';
             $mail->SMTPDebug = 0; // debug on - off
             $mail->isSMTP(); 
-            $mail->Host = gethostbyname('mail.hizirserdaryapici.com'); // SMTP sunucusu örnek : mail.alanadi.com
+            $mail->Host = gethostbyname('mail.hızırserdaryapıcı.com'); // SMTP sunucusu örnek : mail.alanadi.com
             $mail->SMTPAuth = true; // SMTP Doğrulama
-            $mail->Username = 'info@hizirserdaryapici.com'; // Mail kullanıcı adı
-            $mail->Password = 'SerdaryapiciInfo96'; // Mail şifresi
+            $mail->Username = 'info@hızırserdaryapıcı.com'; // Mail kullanıcı adı
+            $mail->Password = 'serdaryapici96'; // Mail şifresi eski SerdaryapiciInfo96
             $mail->SMTPSecure = 'ssl'; // Şifreleme
             $mail->Port = 465; // SMTP Port
             $mail->SMTPOptions = array(
@@ -27,7 +27,7 @@
             'allow_self_signed' => true));
             //Alıcılar
             $mail->setfrom(p('email'), p('name'));
-            $mail->addAddress('info@hizirserdaryapici.com');
+            $mail->addAddress('info@hızırserdaryapıcı.com');
             $mail->addReplyTo(p('email'), p('name'));
             //İçerik
             $mail->isHTML(true);

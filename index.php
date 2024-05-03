@@ -56,7 +56,7 @@
           <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Beni Tanı</span></a></li>
           <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Özgeçmiş</span></a></li>
           <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-          <li><a href="#testimonials" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Referanslar</span></a></li>
+          <!-- <li><a href="#testimonials" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Referanslar</span></a></li> -->
           <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>İletişim</span></a></li>
         </ul>
       </nav><!-- .nav-menu -->
@@ -312,38 +312,45 @@
 
     <!-- ======= Testimonials Section ======= -->
     <?php 
-      $testimonials=mysqli_query($db,"select * from testimonials");  
-    ?>
-    <section id="testimonials" class="testimonials section-bg">
-      <div class="container">
+    // Testimonials sorgusu
+    $testimonials = mysqli_query($db, "SELECT * FROM testimonials");
 
-        <div class="section-title">
-          <h2>Referanslar</h2>
-        </div>
+    // Sorgu sonucunda dönen satır sayısını kontrol ediyoruz
+    $num_rows = mysqli_num_rows($testimonials);
+?>
+<section id="testimonials" class="testimonials section-bg">
+  <div class="container">
 
-        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
-            <?php while ($testimonial=mysqli_fetch_array($testimonials)){ ?>
-              <div class="swiper-slide">
-                <div class="testimonial-item" data-aos="fade-up">
-                  <div class="yazi">
+    <?php if ($num_rows > 0): // Eğer satır varsa testimonielleri göster ?>
+    <div class="section-title">
+      <h2>Referanslar</h2>
+    </div>
+
+      <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper-wrapper">
+          <?php while ($testimonial = mysqli_fetch_array($testimonials)): ?>
+            <div class="swiper-slide">
+              <div class="testimonial-item" data-aos="fade-up">
+                <div class="yazi">
                   <h3><?php echo $testimonial['Testimonials_Company'];?></h3>
-                    <ul>
-                      <li><?php echo $testimonial['Testimonials_Position'];?></li>
-                      <li><?php echo $testimonial['Testimonials_Email'];?></li>
-                      <li><?php echo $testimonial['Testimonials_Phone'];?></li>
-                    </ul>
-                  </div>
-                  <h3><?php echo $testimonial['Testimonials_User'];?></h3>
+                  <ul>
+                    <li><?php echo $testimonial['Testimonials_Position'];?></li>
+                    <li><?php echo $testimonial['Testimonials_Email'];?></li>
+                    <li><?php echo $testimonial['Testimonials_Phone'];?></li>
+                  </ul>
                 </div>
-              </div><!-- End testimonial item -->
-            <?php }?>
-          </div>
-          <div class="swiper-pagination"></div>
+                <h3><?php echo $testimonial['Testimonials_User'];?></h3>
+              </div>
+            </div><!-- End testimonial item -->
+          <?php endwhile; ?>
         </div>
-
+        <div class="swiper-pagination"></div>
       </div>
-    </section><!-- End Testimonials Section -->
+    <?php endif; ?>
+
+  </div>
+</section>
+
 
     <!-- ======= Contact Section ======= -->
     <?php 

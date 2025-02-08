@@ -4,8 +4,8 @@ if (!$dbUrl) {
 
     // $dbUrl = "mysql://gp43ixfvps2viigy:xhahjjjpzn8n0j3v@fojvtycq53b2f2kx.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/eu85oartlozlppxf";
     // $dbUrl = "mysql://dxhsndkj93qjk36n:vciys0zzkdrl2x64@vlvlnl1grfzh34vj.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/m16a7q4c10a8u94m";
-    $dbUrl = "mysql://hd1c4i7ydqviunfq:jlojzcrfdftbjemd@zpfp07ebhm2zgmrm.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/pyggrhqu9rh1kqbt";
-    // $dbUrl = "mysql://mzwafloln3t61opb:u0xpe2jciozb88cf@e7qyahb3d90mletd.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/nb38aoghgx6m7uyd"
+    // $dbUrl = "mysql://hd1c4i7ydqviunfq:jlojzcrfdftbjemd@zpfp07ebhm2zgmrm.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/pyggrhqu9rh1kqbt";
+    $dbUrl = "mysql://mzwafloln3t61opb:u0xpe2jciozb88cf@e7qyahb3d90mletd.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/nb38aoghgx6m7uyd"
 }
 
 // URL'yi ayrıştır
